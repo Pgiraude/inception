@@ -5,8 +5,10 @@ RUN			apt install mariadb-server -y
 RUN			apt install vim -y
 
 COPY        conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY        conf/auto_config.sh auto_config.sh
 
-RUN         service mysql start
+RUN         chmod +x auto_config.sh
+RUN         ./auto_config.sh
 
 #RUN         export SQL_DATABASE=SQL_DataBase \
 #            && mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
