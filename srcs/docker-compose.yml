@@ -20,7 +20,7 @@ volumes:
    driver_opts:
      type: 'none'
      o: 'bind'
-     device: '/home/42/data/wp-database'
+     device: '/home/42/projects/data'
 
 networks:
  inception:
