@@ -1,10 +1,5 @@
 #!/bin/bash
 
-export SQL_DATABASE=WP_database && \
-export SQL_USER=Pierre && \
-export SQL_PASSWORD=1 && \
-export SQL_ROOT_PASSWORD=
-
 service mysql start
 sleep 3
 mysql -e "CREATE DATABASE IF NOT EXISTS ${SQL_DATABASE};"
@@ -13,3 +8,4 @@ mysql -e "GRANT ALL PRIVILEGES ON $SQL_DATABASE.* TO '$SQL_USER'@'%' ;"
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$SQL_ROOT_PASSWORD' ;"
 mysql -e "FLUSH PRIVILEGES;"
 
+mysql

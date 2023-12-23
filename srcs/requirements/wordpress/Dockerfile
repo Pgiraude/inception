@@ -21,9 +21,9 @@ RUN     mv wp-cli.phar /usr/local/bin/wp
 RUN		mkdir -p run/php
 
 COPY	conf/auto_config.sh auto_config.sh
-RUN		chmod +x auto_config.sh
+#RUN		chmod +x auto_config.sh
 
-EXPOSE	80
+EXPOSE	9000
 
 #ENTRYPOINT	["sh", "auto_config.sh"]
 
