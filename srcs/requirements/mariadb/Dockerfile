@@ -8,7 +8,15 @@ COPY        conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY        conf/auto_config.sh auto_config.sh
 
 RUN         chmod +x auto_config.sh
-RUN         ./auto_config.sh
+ENTRYPOINT  ["bash", "auto_config.sh"]
+CMD         ["bash"]
+#RUN         export SQL_DATABASE=WP_database && \
+#            export SQL_USER=Pierre && \
+#            export SQL_PASSWORD=1 && \
+#            export SQL_ROOT_PASSWORD=
+
+#ENTRYPOINT ["sh", "auto_config.sh"]
+
 
 #RUN         export SQL_DATABASE=SQL_DataBase \
 #            && mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
