@@ -8,8 +8,10 @@ COPY        conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY        conf/auto_config.sh auto_config.sh
 
 RUN         chmod +x auto_config.sh
+
+EXPOSE      3306
+
 ENTRYPOINT  ["bash", "auto_config.sh"]
-CMD         ["bash"]
 #RUN         export SQL_DATABASE=WP_database && \
 #            export SQL_USER=Pierre && \
 #            export SQL_PASSWORD=1 && \

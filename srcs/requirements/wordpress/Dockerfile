@@ -25,3 +25,5 @@ RUN		chmod +x auto_config.sh
 
 EXPOSE	9000
 
+#ENTRYPOINT	["sh", "auto_config.sh"]
+
