@@ -25,5 +25,20 @@ COPY	conf/auto_config.sh auto_config.sh
 
 EXPOSE	9000
 
-#ENTRYPOINT	["sh", "auto_config.sh"]
+#ENV         SQL_DATABASE=WP_database
+#ENV         SQL_USER=Pierre
+#ENV         SQL_PASSWORD=123
+#ENV         SQL_ROOT_PASSWORD=
+#ENV			SQL_HOSTNAME=Pedro
+#ENV			WP_TITLE=Inception
+#ENV			WP_ADMIN=PEDRITO
+#ENV			WP_ADMIN_PASSWORD=123
+#ENV			WP_ADMIN_EMAIL=pedrito@gmail.com
+#ENV			WP_USER=LOLA
+#ENV			WP_USER_PASSWORD=123
+#ENV			WP_USER_EMAIL=patate@gmail.com
+
+#RUN			/usr/sbin/php-fpm7.3 -F -R
+
+#ENTRYPOINT	["bash", "auto_config.sh"]
 

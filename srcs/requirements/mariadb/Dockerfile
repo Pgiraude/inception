@@ -1,5 +1,10 @@
 FROM		debian:buster
 
+#ENV         SQL_DATABASE=WP_database
+#ENV         SQL_USER=Pierre
+#ENV         SQL_PASSWORD=1
+#ENV         SQL_ROOT_PASSWORD=
+
 RUN			apt update -y && apt upgrade -y
 RUN			apt install mariadb-server -y
 RUN			apt install vim -y
@@ -12,23 +17,3 @@ RUN         chmod +x auto_config.sh
 EXPOSE      3306
 
 ENTRYPOINT  ["bash", "auto_config.sh"]
-#RUN         export SQL_DATABASE=WP_database && \
-#            export SQL_USER=Pierre && \
-#            export SQL_PASSWORD=1 && \
-#            export SQL_ROOT_PASSWORD=
-
-#ENTRYPOINT ["sh", "auto_config.sh"]
-
-
-#RUN         export SQL_DATABASE=SQL_DataBase \
-#            && mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
-
-#RUN         export SQL_USER=pierre \
-#            && export SQL_PASSWORD=123 \
-#            && mysql -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
-
-#RUN         mysql -e "GRANT ALL PRIVILEGES ON \`${SQL_DATABASE}\`.* TO \`${SQL_USER}\`@'%' IDENTIFIED BY '${SQL_PASSWORD}';"
-#RUN         mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
-#RUN         mysql -e "FLUSH PRIVILEGES;"
-#RUN         mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
-#RUN         exec mysqld_safe
