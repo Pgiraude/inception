@@ -17,24 +17,9 @@ RUN			chmod 755 /var/www/html
 RUN			chown -R www-data:www-data /var/www/html
 
 
-COPY		conf/nginx.conf etc/nginx/sites-available/default
+#COPY		conf/nginx.conf etc/nginx/sites-available/default
+COPY		conf/test.html var/www/html/index.nginx-debian.html
 
-EXPOSE		443
+#EXPOSE		443
 
-CMD			["nginx", "-g", "daemon off;"]
-
-# 					nginx			\
-# 					curl			\
-# 					vim				\
-# 					sudo
-# 
-# RUN			rm -f /etc/nginx/nginx.conf
-# 
-# COPY		./config/nginx.conf /etc/nginx/nginx.conf
-# COPY		scripts/setup_nginx.sh /setup_nginx.sh
-# 
-# RUN			chmod -R +x /setup_nginx.sh
-# 
-# EXPOSE		443
-# 
-# ENTRYPOINT	["sh", "setup_nginx.sh"]
+CMD		["nginx", "-g", "daemon off;"]
