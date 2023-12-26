@@ -8,22 +8,27 @@ RUN     apt-get install -y php7.3\
 		php-mysql\
 		mariadb-client
 
-RUN     wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www
-RUN     cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
+RUN     wget https://fr.wordpress.org/latest-fr_FR.tar.gz -P /var/www
+RUN     cd /var/www && tar -xzf latest-fr_FR.tar.gz && rm -f latest-fr_FR.tar.gz
 RUN		chown -R root:root /var/www/wordpress
 
-COPY    conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY    conf/www-php.conf /etc/php/7.3/fpm/pool.d/www.conf
 
-RUN     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN     chmod +x wp-cli.phar
-RUN     mv wp-cli.phar /usr/local/bin/wp
+#RUN     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+#RUN     chmod +x wp-cli.phar
+#RUN     mv wp-cli.phar /usr/local/bin/wp
 
 RUN		mkdir -p run/php
 
-COPY	conf/auto_config.sh auto_config.sh
-#RUN		chmod +x auto_config.sh
+#COPY	conf/auto_config.sh auto_config.sh
+#RUN	bash auto_config.sh
+#RUN    rm -f auto_config.sh
 
 EXPOSE	9000
+
+CMD ["/usr/sbin/php-fpm7.3", "-F"]
+
+#RUN		/usr/sbin/php-fpm7.3 -R
 
 #ENV         SQL_DATABASE=WP_database
 #ENV         SQL_USER=Pierre

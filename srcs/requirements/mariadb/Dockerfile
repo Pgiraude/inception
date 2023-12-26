@@ -1,9 +1,9 @@
 FROM		debian:buster
 
-ENV         SQL_DATABASE=WP_database
-ENV         SQL_USER=Pierre
-ENV         SQL_PASSWORD=1
-ENV         SQL_ROOT_PASSWORD=
+#ENV         SQL_DATABASE=WP_database
+#ENV         SQL_USER=Pierre
+#ENV         SQL_PASSWORD=1
+#ENV         SQL_ROOT_PASSWORD=
 
 RUN			apt update -y && apt upgrade -y
 RUN			apt install mariadb-server -y
