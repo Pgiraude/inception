@@ -16,9 +16,7 @@ RUN			mkdir var/run/nginx -p
 RUN			chmod 755 /var/www/html
 RUN			chown -R www-data:www-data /var/www/html
 
-
 COPY		conf/nginx.conf etc/nginx/sites-available/default
-#COPY		conf/test.html var/www/html/index.nginx-debian.html
 
 EXPOSE		443
 

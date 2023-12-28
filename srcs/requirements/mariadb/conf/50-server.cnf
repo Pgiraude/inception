@@ -5,4 +5,4 @@ socket          = /run/mysqld/mysqld.sock
 port            = 3306
 datadir         = /var/lib/mysql
 bind-address    = *
-log-error       = /var/log/mysql/error.log
+log_error       = /var/log/mysql/error.log
