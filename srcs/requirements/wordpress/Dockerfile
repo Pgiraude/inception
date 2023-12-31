@@ -13,6 +13,7 @@ COPY    conf/www-php.conf /etc/php/7.3/fpm/pool.d/www.conf
 RUN     wget https://fr.wordpress.org/latest-fr_FR.tar.gz -P /var/www
 RUN     cd /var/www && tar -xzf latest-fr_FR.tar.gz && rm -f latest-fr_FR.tar.gz
 RUN		chown -R root:root /var/www/wordpress
+RUN		chown -R www-data:www-data /var/www/wordpress
 
 
 #RUN     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar

@@ -59,13 +59,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home'
+      device: '/home/pedrito954/42/projects/data'
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home'
+      device: '/home/pedrito954/42/projects/data2'
 
 networks:
   inception:
