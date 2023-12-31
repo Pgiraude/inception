@@ -11,9 +11,9 @@ RUN			apt install vim -y
 
 COPY        conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-mysqld_safe.cnf
 
-RUN mkdir -p /var/run/mysqld \
-&& chown -R mysql:mysql /var/run/mysqld \
-&& chmod 777 /var/run/mysqld
+RUN mkdir -p /var/lib/mysqld \
+&& chown -R mysql:mysql /var/lib/mysqld \
+&& chmod 777 /var/lib/mysqld
 
 COPY        conf/auto_config.sh auto_config.sh
 RUN         bash auto_config.sh
@@ -21,4 +21,4 @@ RUN         rm -f auto_config.sh
 
 EXPOSE      3306
 
-CMD         ["mysqld", "--user=root"]
+CMD         ["mysqld"]
